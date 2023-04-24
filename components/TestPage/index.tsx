@@ -1,34 +1,45 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useAppDispatch, useAppSelector } from '~/app/hooks'
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+  selectCount,
+} from '~/features/counter/counterSlice'
 
-interface Todo {
-  userId: number
-  id: number
-  title: string
-  completed: boolean
-}
-
-interface Props {
-  data: Todo[]
-}
-const App: React.FC<Props> = ({ data }) => {
-  const [todo, setTodo] = useState<Todo[]>(data)
-
-  useEffect(() => {
-    const interval = setTimeout(() => {
-      setTodo(data.slice(0, 4))
-    }, 1000)
-    return () => clearTimeout(interval)
-  }, [])
+const Counter = () => {
+  const dispatch = useAppDispatch()
+  const count = useAppSelector(selectCount)
+  const [incrementAmount, setIncrementAmount] = useState<number>(0)
   return (
     <div>
-      <h1>Todo:</h1>
-      {todo.map((todo) => (
-        <div key={todo.id}>
-          <p>{todo.title}</p>
-        </div>
-      ))}
+      <h1>Welcome to the greatest app in the world!</h1>
+      <h2>
+        The current number is
+        &nbsp;
+        {count}
+      </h2>
+
+      <div>
+        <button onClick={() => dispatch(decrement())}>Decrement by 1</button>
+        <button onClick={() => dispatch(increment())}>Increment by 1</button>
+      </div>
+
+      <div>
+        <input
+          value={incrementAmount}
+          onChange={(e) => setIncrementAmount(Number(e.target.value))}
+          type='number'
+        />
+        <button
+          onClick={() => dispatch(incrementByAmount(Number(incrementAmount)))}
+        >
+          Increment by amount
+        </button>
+      </div>
+   
     </div>
   )
 }
 
-export default App
+export default Counter
