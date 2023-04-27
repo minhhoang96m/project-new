@@ -1,7 +1,7 @@
+import Image from 'next/image'
 import { signOut } from 'firebase/auth'
 import { auth } from '~/config/firebase.ts'
-
-import Image from 'next/image'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 import LogoBlack from '~/public/assets/LogoBlack.png'
 
@@ -31,18 +31,27 @@ export default function HomePage() {
       console.log('error Logout', error)
     }
   }
+  const [loggedInUser] = useAuthState(auth)
 
   return (
     <div className='grid grid-flow-row w-[100%] mx-[8rem]  mt-[3.6rem] mb-[8rem]'>
       <div className='flex flex-row justify-normal items-center max-w-[128rem] h-[5.2rem] text-[1.5rem] '>
         <Image
-          src={LogoBlack}
+          src={LogoBlack || loggedInUser?.photoURL}
           alt='LogoBlack.png'
           width={52}
           height={52}
           className='flex-none'
         />
+        <Image
+          src={loggedInUser?.photoURL || ''}
+          alt='LogoBlacks'
+          width={52}
+          height={52}
+          className='flex-none rounded-full mx-5'
+        />
         <div className='flex flex-row grow justify-normal items-center  mx-[2rem] my-[3.6rem] text-[1.5rem]'>
+          {`Xin chào ${loggedInUser?.email as string}`}
           {nameLinks.map((nameLink) => (
             <div className='mx-6 my-3' key={nameLink.id}>
               {nameLink.name}

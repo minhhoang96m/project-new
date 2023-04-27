@@ -3,6 +3,7 @@ import Illustration from '~/public/assets/Illustration_1.png'
 import MasterCard from '~/public/assets/m_mastercard.png'
 import Paypall from '~/public/assets/m_paypall.png'
 import Visa from '~/public/assets/m_visa.png'
+
 const HeroPage = () => {
   return (
     <div>

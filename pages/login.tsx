@@ -5,9 +5,11 @@ import LogoGG from '~/public/assets/google-logo.png'
 const Login = () => {
   const [signInWithGoogle, __user, __loading, __error] =
     useSignInWithGoogle(auth)
+   
   const handleLogin = () => {
     signInWithGoogle()
   }
+
   return (
     <div className='flex flex-col justify-center items-center mx-auto w-[50rem] h-[50rem] bg-white my-[20rem]'>
       <Image src={LogoGG} width={300} height={300} alt='logo'/>
