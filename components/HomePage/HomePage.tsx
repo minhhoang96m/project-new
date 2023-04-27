@@ -1,3 +1,6 @@
+import { signOut } from 'firebase/auth'
+import { auth } from '~/config/firebase.ts'
+
 import Image from 'next/image'
 
 import LogoBlack from '~/public/assets/LogoBlack.png'
@@ -21,10 +24,17 @@ export default function HomePage() {
       name: 'FAQs',
     },
   ]
+  const handleLogout = async () => {
+    try {
+      await signOut(auth)
+    } catch (error) {
+      console.log('error Logout', error)
+    }
+  }
 
   return (
     <div className='grid grid-flow-row w-[100%] mx-[8rem]  mt-[3.6rem] mb-[8rem]'>
-      <div className='flex flex-row justify-normal items-center w-[128rem] h-[5.2rem]  text-[1.5rem] '>
+      <div className='flex flex-row justify-normal items-center max-w-[128rem] h-[5.2rem] text-[1.5rem] '>
         <Image
           src={LogoBlack}
           alt='LogoBlack.png'
@@ -40,12 +50,15 @@ export default function HomePage() {
           ))}
         </div>
 
-        <button className='flex-none text-[1.5rem] text-center bg-[#F0F0F0] w-[12.8rem] h-[5.2rem] shadow-[0 4px 4px 0 rgba(0,0,0,0.25)] rounded-[0.4rem] cursor-pointer'>
-          Login
+        <button className='flex-none text-[1.5rem] text-center text-[#FFFF] bg-black w-[12.8rem] h-[5.2rem] mx-3 shadow-[0px 4px 4px 0px rgba(0,0,0,0.25)] rounded-[0.4rem] cursor-pointer select-none  hover:bg-[white] hover:text-black transition-all'>
+          Sign up
         </button>
 
-        <button className='flex-none text-[1.5rem] text-center text-[#FFFF] bg-black w-[12.8rem] h-[5.2rem] mx-3 shadow-[0px 4px 4px 0px rgba(0,0,0,0.25)] rounded-[0.4rem] cursor-pointer'>
-          Sign up
+        <button
+          className='flex-none text-[1.5rem] text-center  bg-[#F0F0F0] w-[12.8rem] h-[5.2rem] shadow-[0 4px 4px 0 rgba(0,0,0,0.25)] rounded-[0.4rem] cursor-pointer select-none  hover:bg-[black] hover:text-white transition-all'
+          onClick={handleLogout}
+        >
+          Logout
         </button>
       </div>
     </div>
