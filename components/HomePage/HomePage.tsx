@@ -37,7 +37,7 @@ export default function HomePage() {
     <div className='grid grid-flow-row w-[100%] mx-[8rem]  mt-[3.6rem] mb-[8rem]'>
       <div className='flex flex-row justify-normal items-center max-w-[128rem] h-[5.2rem] text-[1.5rem] '>
         <Image
-          src={LogoBlack || loggedInUser?.photoURL}
+          src={LogoBlack}
           alt='LogoBlack.png'
           width={52}
           height={52}
@@ -51,7 +51,7 @@ export default function HomePage() {
           className='flex-none rounded-full mx-5'
         />
         <div className='flex flex-row grow justify-normal items-center  mx-[2rem] my-[3.6rem] text-[1.5rem]'>
-          {`Xin chào ${loggedInUser?.email as string}`}
+          {`Hello ${loggedInUser?.email as string}`}
           {nameLinks.map((nameLink) => (
             <div className='mx-6 my-3' key={nameLink.id}>
               {nameLink.name}

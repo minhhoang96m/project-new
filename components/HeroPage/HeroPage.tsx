@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Illustration from '~/public/assets/Illustration_1.png'
 import MasterCard from '~/public/assets/m_mastercard.png'
-import Paypall from '~/public/assets/m_paypall.png'
+import Paypal from '~/public/assets/m_paypal.png'
 import Visa from '~/public/assets/m_visa.png'
 
 const HeroPage = () => {
@@ -24,7 +24,7 @@ const HeroPage = () => {
               placeholder='Enter your email'
               className='w-[28rem] h-[5.2rem] text-[1.5rem] pl-3 border border-black'
             />
-            <button className='text-[1.5rem] text-center text-[#FFFF] text-[1.5rem] bg-black w-[19.8rem] h-[5.2rem] shadow-[0px 4px 4px 0px rgba(0,0,0,0.25)]  cursor-pointer '>
+            <button className='text-[1.5rem] text-center text-[#FFFF] bg-black w-[19.8rem] h-[5.2rem] shadow-[0px 4px 4px 0px rgba(0,0,0,0.25)]  cursor-pointer '>
               Get started
             </button>
           </div>
@@ -45,8 +45,8 @@ const HeroPage = () => {
             />
             <Image
               className=' object-cover mr-10'
-              src={Paypall}
-              alt='Paypall'
+              src={Paypal}
+              alt='Paypal'
               width={120}
               height={40}
             />
