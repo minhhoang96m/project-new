@@ -6,7 +6,11 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import LogoBlack from '~/public/assets/LogoBlack.png'
 
 export default function HomePage() {
-  const nameLinks = [
+  interface nameLinks   {
+    id: number;
+    name: string;
+  }
+  const nameLinks : nameLinks[] = [
     {
       id: 1,
       name: 'About us',
