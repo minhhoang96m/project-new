@@ -10,7 +10,7 @@ const Login = () => {
   }
   return (
     <div className='flex flex-col justify-center items-center mx-auto w-[50rem] h-[50rem] bg-white my-[20rem]'>
-      <Image src={LogoGG} width={300} height={300}/>
+      <Image src={LogoGG} width={300} height={300} alt='logo'/>
       <button
         className='mt-3 text-[1.5rem] text-center text-[#FFFF] text-[1.5rem] bg-black w-[19.8rem] h-[5.2rem]  cursor-pointer rounded-full select-none hover:bg-[red] transition-all'
         onClick={handleLogin}
