@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import { HomePage } from '~/components/HomePage'
-import { HeroPage } from '~/components/HeroPage'
+import { HeroPage } from '~/components/HeroPast'
 
 export default function Home() {
   return (
